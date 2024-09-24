@@ -15,11 +15,15 @@
             <img src="/images/avatar.png" alt="Photo de profil" width="32" height="32" class="rounded-circle">
           </a>
           <ul class="dropdown-menu text-small text-center"" aria-labelledby="dropdownUser1">
+            <% if(utilisateur) { %>    
             <li><div class="text-center">
               <img src="/images/avatar.png" alt="Photo de profil" width="32" height="32" class="rounded-circle">
-              <h4>Louis Musole</h4>
+              <h4><%= utilisateur.nom %> </h4>
             </div></li>
-            <li><a class="dropdown-item" href="/connexion">Déconnexion</a></li>
+            <li> <form action="/deconnexion" method="post"> <button type="submit">Deconnexion</button></form> </li>
+            <% } else { %> 
+              <li><a href="/connexion">Connexion</a></li>
+            <% } %> 
           </ul>
         </div>
       </div>
